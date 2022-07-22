@@ -6,13 +6,12 @@ using PierreOrder.Models;
 namespace PierreVendor.Tests
 {
     [TestClass]
-    public class OrderTests 
-    // : IDisposable
+    public class OrderTests : IDisposable
     {
-        // public void Dispose()
-        // {
-        //     Order.ClearAll();
-        // }
+        public void Dispose()
+        {
+            Order.ClearAll();
+        }
 
         [TestMethod]
         public void OrderConstructor_CreatesInstanceOfOrder_Order()
@@ -34,36 +33,16 @@ namespace PierreVendor.Tests
             Assert.AreEqual(0, result);
         }
 
-        // [TestMethod]
-        // public void GetDescription_Return_String()
-        // {
-        //     string description = "Test Description";
-        //     Order newOrder = new Order(description);
 
-        //     string result = newOrder.Description;
-        //     Assert.AreEqual(description, result);
-        // }
-
-//         [TestMethod]
-//         public void GetId_ReturnVendorId_Int()
-//         {
-//             string vendorName = "Test Vendor";
-//             Vendor newVendor = new Vendor(vendorName);
-//             int result = newVendor.Id;
-//             Assert.AreEqual(0, result);
-//         }
-
-//         [TestMethod]
-//         public void GetAll_ReturnsAllVendorObjects_VendorList()
-//         {
-//             string vendorName01 = "Test Vendor 1";
-//             string vendorName02 = "Test Vendor 2";
-//             Vendor newVendor1 = new Vendor(vendorName01);
-//             Vendor newVendor2 = new Vendor(vendorName02);
-//             List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2};
-//             List<Vendor> result = Vendor.GetAll();
-//             CollectionAssert.AreEqual(newList, result);
-//         }
+        [TestMethod]
+        public void GetAll_ReturnsOrderObjects_OrderList()
+        {
+            Order newOrder1 = new Order("test name", "Test Description", 34, "5/23/34");
+            Order newOrder2 = new Order("test name 2", "test description 2", 24, "5/34/45");
+            List<Order> newList = new List<Order> { newOrder1, newOrder2};
+            List<Order> result = Order.GetAll();
+            CollectionAssert.AreEqual(newList, result);
+        }
 
 //         [TestMethod]
 //         public void Find_ReturnsCorrectVendor_Vendor()
