@@ -11,25 +11,38 @@ namespace PierreVendor.Tests
     {
         // public void Dispose()
         // {
-        //     Vendor.ClearAll();
+        //     Order.ClearAll();
         // }
 
         [TestMethod]
         public void OrderConstructor_CreatesInstanceOfOrder_Order()
         {
-            Order newOrder= new Order("test");
+            Order newOrder = new Order("test name", "Test Description", 34, "5/23/34");
             Assert.AreEqual(typeof (Order), newOrder.GetType());
         }
 
         [TestMethod]
-        public void GetOrderName_Return_String()
+        public void GetId_ReturnsOrderId_int()
         {
             string orderName = "Test Order Name";
-            Order newOrder = new Order(orderName);
+            string description = "test description";
+            int price = 45;
+            string date = "5/23/23";
+            Order newOrder = new Order(orderName, description, price, date);
 
-            string result = newOrder.OrderName;
-            Assert.AreEqual(orderName, result);
+            int result = newOrder.Id;
+            Assert.AreEqual(0, result);
         }
+
+        // [TestMethod]
+        // public void GetDescription_Return_String()
+        // {
+        //     string description = "Test Description";
+        //     Order newOrder = new Order(description);
+
+        //     string result = newOrder.Description;
+        //     Assert.AreEqual(description, result);
+        // }
 
 //         [TestMethod]
 //         public void GetId_ReturnVendorId_Int()
