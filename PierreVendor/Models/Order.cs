@@ -4,34 +4,46 @@ namespace PierreVendor.Models
 {
     public class Order
     {
-//         public string VendorName { get; set; }
+        public string OrderName { get; set; }
 
-//         public int Id { get; }
+        public string Description { get; set; }
 
+        public int Price { get; set; }
 
+        public string Date { get; set; }
 
-//         private static List<Vendor> _instances = new List<Vendor> { };
+        public int Id { get; }
 
-        public Order(string vendorName)
+        private static List<Order> _instances = new List<Order> { };
+
+        public Order(
+            string orderName,
+            string description,
+            int price,
+            string date
+        )
         {
-//             VendorName = vendorName;
-//             Id = _instances.Count;
-//             _instances.Add(this);
+            OrderName = orderName;
+            Description = description;
+            Price = price;
+            Date = date;
+            Id = _instances.Count;
+            _instances.Add(this);
         }
 
-        //  public static void ClearAll()
-        // {
-        //     _instances.Clear();
-        // }
+        public static void ClearAll()
+        {
+            _instances.Clear();
+        }
 
-//         public static Vendor Find(int searchId)
-//         {
-//             return _instances[searchId - 1];
-//         }
+        public static Order Find(int searchId)
+        {
+            return _instances[searchId - 1];
+        }
 
-//         public static List<Vendor> GetAll()
-//         {
-//           return _instances;
-//         }
+        public static List<Order> GetAll()
+        {
+            return _instances;
+        }
     }
 }
