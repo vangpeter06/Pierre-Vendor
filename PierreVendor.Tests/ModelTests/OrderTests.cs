@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PierreOrder.Models;
 
-namespace PierreVendor.Tests
+namespace PierreOrder.Tests
 {
     [TestClass]
     public class OrderTests : IDisposable
@@ -44,17 +44,15 @@ namespace PierreVendor.Tests
             CollectionAssert.AreEqual(newList, result);
         }
 
-//         [TestMethod]
-//         public void Find_ReturnsCorrectVendor_Vendor()
-//         {
-//             string vendorName01 = "Test Vendor 1";
-//             string vendorName02 = "Test Vendor 2";
-//             Vendor newVendor1 = new Vendor(vendorName01);
-//             Vendor newVendor2 = new Vendor(vendorName02);
-//             Vendor result = Vendor.Find(2);
-//             Assert.AreEqual(newVendor2, result);
-//         }
+        [TestMethod]
+        public void Find_ReturnsCorrectOrder_Order()
+        {
+            Order newOrder1 = new Order("test name", "Test Description", 34, "5/23/34");
+            Order newOrder2 = new Order("test name 2", "test description 2", 24, "5/34/45");
+            Order result = Order.Find(2);
+            Assert.AreEqual(newOrder2, result);
+        }
 
-//        
+       
     }
 }
