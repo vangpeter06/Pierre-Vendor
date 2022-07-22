@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PierreVendor.Models;
+using PierreOrder.Models;
 
 namespace PierreVendor.Tests
 {
@@ -21,15 +21,15 @@ namespace PierreVendor.Tests
             Assert.AreEqual(typeof (Order), newOrder.GetType());
         }
 
-//         [TestMethod]
-//         public void GetVendorName_Return_String()
-//         {
-//             string vendorName = "Test Vendor";
-//             Vendor newVendor = new Vendor(vendorName);
+        [TestMethod]
+        public void GetOrderName_Return_String()
+        {
+            string orderName = "Test Order Name";
+            Order newOrder = new Order(orderName);
 
-//             string result = newVendor.VendorName;
-//             Assert.AreEqual(vendorName, result);
-//         }
+            string result = newOrder.OrderName;
+            Assert.AreEqual(orderName, result);
+        }
 
 //         [TestMethod]
 //         public void GetId_ReturnVendorId_Int()
