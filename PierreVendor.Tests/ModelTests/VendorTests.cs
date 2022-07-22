@@ -16,7 +16,7 @@ namespace PierreVendor.Tests
         [TestMethod]
         public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
         {
-            Vendor newVendor = new Vendor("test");
+            Vendor newVendor = new Vendor("test", "test 2");
             Assert.AreEqual(typeof (Vendor), newVendor.GetType());
         }
 
@@ -24,7 +24,8 @@ namespace PierreVendor.Tests
         public void GetVendorName_Return_String()
         {
             string vendorName = "Test Vendor";
-            Vendor newVendor = new Vendor(vendorName);
+           
+            Vendor newVendor = new Vendor(vendorName, "test");
 
             string result = newVendor.VendorName;
             Assert.AreEqual (vendorName, result);
@@ -34,7 +35,7 @@ namespace PierreVendor.Tests
         public void GetId_ReturnVendorId_Int()
         {
             string vendorName = "Test Vendor";
-            Vendor newVendor = new Vendor(vendorName);
+            Vendor newVendor = new Vendor(vendorName, "test");
             int result = newVendor.Id;
             Assert.AreEqual(0, result);
         }
@@ -44,8 +45,8 @@ namespace PierreVendor.Tests
         {
             string vendorName01 = "Test Vendor 1";
             string vendorName02 = "Test Vendor 2";
-            Vendor newVendor1 = new Vendor(vendorName01);
-            Vendor newVendor2 = new Vendor(vendorName02);
+            Vendor newVendor1 = new Vendor(vendorName01, "test");
+            Vendor newVendor2 = new Vendor(vendorName02, "test");
             List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
             List<Vendor> result = Vendor.GetAll();
             CollectionAssert.AreEqual (newList, result);
@@ -56,8 +57,8 @@ namespace PierreVendor.Tests
         {
             string vendorName01 = "Test Vendor 1";
             string vendorName02 = "Test Vendor 2";
-            Vendor newVendor1 = new Vendor(vendorName01);
-            Vendor newVendor2 = new Vendor(vendorName02);
+            Vendor newVendor1 = new Vendor(vendorName01, "test");
+            Vendor newVendor2 = new Vendor(vendorName02, "test");
             Vendor result = Vendor.Find(2);
             Assert.AreEqual (newVendor2, result);
         }
@@ -72,7 +73,8 @@ namespace PierreVendor.Tests
             Order newOrder = new Order(orderName, description, price, date);
             List<Order> newList = new List<Order> { newOrder };
             string vendorName = "Pizza";
-            Vendor newVendor = new Vendor(vendorName);
+            string vendorInfo = "Very good pizza";
+            Vendor newVendor = new Vendor(vendorName, vendorInfo);
             newVendor.AddOrder (newOrder);
             List<Order> result = newVendor.Orders;
             CollectionAssert.AreEqual (newList, result);
