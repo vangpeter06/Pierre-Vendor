@@ -8,7 +8,7 @@ namespace PierreVendor.Models
 
         public int Id { get; }
 
-
+        public List<Order> Orders { get; set; }
 
         private static List<Vendor> _instances = new List<Vendor> { };
 
@@ -17,9 +17,10 @@ namespace PierreVendor.Models
             VendorName = vendorName;
             Id = _instances.Count;
             _instances.Add(this);
+            Orders = new List<Order> { };
         }
 
-         public static void ClearAll()
+        public static void ClearAll()
         {
             _instances.Clear();
         }
@@ -31,7 +32,12 @@ namespace PierreVendor.Models
 
         public static List<Vendor> GetAll()
         {
-          return _instances;
+            return _instances;
+        }
+
+        public void AddOrder(Order order)
+        {
+            Orders.Add (order);
         }
     }
 }
