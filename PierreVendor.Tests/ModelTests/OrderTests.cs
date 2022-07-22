@@ -6,13 +6,12 @@ using PierreVendor.Models;
 namespace PierreVendor.Tests
 {
     [TestClass]
-    public class PierreVendorTests 
-    // : IDisposable
+    public class PierreVendorTests : IDisposable
     {
-        // public void Dispose()
-        // {
-        //     Vendor.ClearAll();
-        // }
+        public void Dispose()
+        {
+            Vendor.ClearAll();
+        }
 
         [TestMethod]
         public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
@@ -39,5 +38,19 @@ namespace PierreVendor.Tests
             int result = newVendor.Id;
             Assert.AreEqual(0, result);
         }
+
+        [TestMethod]
+        public void GetAll_ReturnsAllVendorObjects_VendorList()
+        {
+            string vendorName01 = "Test Vendor 1";
+            string vendorName02 = "Test Vendor 2";
+            Vendor newVendor1 = new Vendor(vendorName01);
+            Vendor newVendor2 = new Vendor(vendorName02);
+            List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2};
+            List<Vendor> result = Vendor.GetAll();
+            CollectionAssert.AreEqual(newList, result);
+        }
+
+        
     }
 }
