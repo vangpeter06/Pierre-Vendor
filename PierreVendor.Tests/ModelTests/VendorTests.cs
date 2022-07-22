@@ -62,6 +62,6 @@ namespace PierreVendor.Tests
             Assert.AreEqual(newVendor2, result);
         }
 
-      
+        
     }
 }
