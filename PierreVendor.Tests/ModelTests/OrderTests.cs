@@ -1,24 +1,25 @@
-// using System;
-// using System.Collections.Generic;
-// using Microsoft.VisualStudio.TestTools.UnitTesting;
-// using PierreVendor.Models;
+using System;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PierreVendor.Models;
 
-// namespace PierreVendor.Tests
-// {
-//     [TestClass]
-//     public class PierreVendorTests : IDisposable
-//     {
-//         public void Dispose()
-//         {
-//             Vendor.ClearAll();
-//         }
+namespace PierreVendor.Tests
+{
+    [TestClass]
+    public class OrderTests 
+    // : IDisposable
+    {
+        // public void Dispose()
+        // {
+        //     Vendor.ClearAll();
+        // }
 
-//         [TestMethod]
-//         public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
-//         {
-//             Vendor newVendor = new Vendor("test");
-//             Assert.AreEqual(typeof (Vendor), newVendor.GetType());
-//         }
+        [TestMethod]
+        public void OrderConstructor_CreatesInstanceOfOrder_Order()
+        {
+            Order newOrder= new Order("test");
+            Assert.AreEqual(typeof (Order), newOrder.GetType());
+        }
 
 //         [TestMethod]
 //         public void GetVendorName_Return_String()
@@ -62,7 +63,6 @@
 //             Assert.AreEqual(newVendor2, result);
 //         }
 
-//         [TestMethod]
-//         public void 
-//     }
-// }
+//        
+    }
+}
